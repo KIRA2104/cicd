@@ -1,8 +1,17 @@
-# pyrefly: ignore [missing-import]
+# pyright: ignore [reportMissingImports]
 from fastapi import FastAPI
+
+# pyright: ignore [reportMissingImports]
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 app = FastAPI()
+
+
+@app.get("/")
+def get_home():
+    return FileResponse("index.html")
+
 
 todos = []
 
